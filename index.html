@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    <title>1st round quiz</title>
+    <link rel="stylesheet" href="./style.css"/>
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="./questions.js"></script>
+    </head>
+<body>
+	
+	<script type="text/javascript">
+$(document).ready(function () {
+    //Disable full page
+    $("body").on("contextmenu",function(e){
+        return false;
+    });
+});
+    var timer = 1200;
+    var x = setInterval(function(){
+    
+    if(timer != 0)
+    {
+    $("#quiz-name").text(timer+ " seconds left...");
+    timer--;
+    }
+    else
+    {
+    $("#quiz-name").text("oooops....");
+    clearInterval(x);
+    alert("Times Up Champ!");
+    $("#submit-button").trigger("click");
+    }
+    
+    },1000);
+    
+</script>
+	
+	
+<div id="quiz">
+  <h1 id="quiz-name"></h1>
+  <button id="submit-button">Submit Answers</button>
+  <button id="next-question-button">Next Question</button>
+  <button id="prev-question-button">Previous</button>
+  <div id="quiz-results">
+    <p id="quiz-results-message"></p>
+    <p id="quiz-results-score"></p>
+  </div>
+</div>
+</body>
+</html>
